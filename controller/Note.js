@@ -26,8 +26,18 @@ async function deleteNote(req, res) {
         }
     };
 
+async function getNote(req, res) { 
+    try {
+        const note = await NoteSchema.findById(req.params.id);
+        res.status(200).send(note);
+        } catch (err) {
+        res.status(500).send(err);
+    }
+};
+
 module.exports = {
     createNote,
     updateNote,
     deleteNote,
+    getNote,
 };
