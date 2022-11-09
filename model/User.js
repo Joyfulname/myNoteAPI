@@ -1,21 +1,22 @@
 const mongoose = require(mongoose);
+const bcrypt = require(bcrypt);
 
-const NoteSchema = new mongoose.Schema({
-    title: {
+const UserSchema = new mongoose.Schema({
+    username: {
         type: String,
         required: true,
     },
-    content: {
+    email: {
         type: String,
         required: true,
     },
     number: {
         type: Number,
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+    password: {
+        type: String,
+        required: true,
     },
 });
 
-module.exports = NoteSchema;
+module.exports = UserSchema;
